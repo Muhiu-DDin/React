@@ -1,4 +1,4 @@
-import { useState , useCallback , useEffect} from 'react'
+import { useState , useCallback , useEffect , useRef} from 'react'
 import './App.css'
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   const [numAllowed , setNum] = useState(true);
   const [password ,  setPassword] = useState("");
 
-  const passGenrator = useCallback(()=>{
+  const passGenrator = ()=>{
 
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let pass = "";
@@ -21,10 +21,21 @@ function App() {
       pass += str.charAt(char);
 
     }
-
+    
     setPassword(pass);
 
-  } , [length , charAllowed , numAllowed])
+  }
+
+  const reffer = useRef(null);
+
+  const copyPass = ()=>{
+    reffer.current?.select();
+    window.navigator.clipboard.writeText(password);
+
+    if(password){
+    alert("code copied")
+    }
+  }
 
   // useEffect(() => {
   //   passGenrator();
@@ -38,9 +49,10 @@ function App() {
         <h1 className='text-center text-2xl'>Password Generator</h1>
         <div className='flex flex-col items-center mt-10'>
 
-          <div>
-            <input type="text"  value={password} className="p-2 border w-64 border-gray-300 rounded-md"/>
-          </div>
+        <div className='flex items-center'>
+            <input type="text" value={password} ref={reffer} className="p-2 border w-64 border-gray-300  outline-none rounded-l-lg"/>
+            <button className='border px-3 py-2 text-white bg-blue-600 rounded-r-md' onClick={copyPass}>Copy</button>
+        </div>
 
           <div className="flex items-center space-y-2 space-x-5 mt-5">
 
@@ -60,7 +72,7 @@ function App() {
                 </div>
 
           </div>
-            <button className=' mt-10 border px-3 py-2 text-white bg-blue-600 rounded-md' onClick={passGenrator}>Generate</button>
+            <button className='mt-10 border px-3 py-2 text-white bg-blue-600 rounded-md' onClick={passGenrator}>Generate</button>
           </div>
 
       </div>
