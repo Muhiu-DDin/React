@@ -3,7 +3,8 @@ import { Outlet } from 'react-router-dom';
 
 function AuthenticationBlock() {
   const navigate = useNavigate(); 
-  const handleNavigation = () => navigate("/auth/signin");
+  const handleSignin = () => navigate("/auth/signin");
+  const handleSignup = ()=> navigate("/auth/signup");
   const navigateBack = () => navigate("/");
   
   return (
@@ -16,12 +17,12 @@ function AuthenticationBlock() {
         </p>
         <div className="flex justify-center gap-4 mt-5">
           <button 
-            onClick={handleNavigation} 
+            onClick={handleSignin} 
             className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-300 ease-in-out"
           >
             Sign In
           </button>
-          <button className="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition duration-300 ease-in-out">
+          <button onClick={handleSignup} className="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition duration-300 ease-in-out">
             Sign Up
           </button>
         </div>

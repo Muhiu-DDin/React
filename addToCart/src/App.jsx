@@ -45,7 +45,8 @@ function App() {
 
   return (
     <>
-      <div className="flex justify-between items-center p-5">
+      <div className="flex justif
+      y-between items-center p-5">
         <h1 className='text-2xl text-center'>Shopping</h1>
         <h1 className="cursor-pointer" onClick={() => setShowCartItems(!showCartItems)}>
           {showCartItems ? "your Items" : `Cart Items: ${cartItems.length}`}

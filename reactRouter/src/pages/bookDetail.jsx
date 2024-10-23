@@ -8,10 +8,10 @@ export function BookDetail() {
   const { title } = useParams();
   const book = books.find((data) => data.title === title);
 
-  // Ensure book exists before destructuring to avoid errors
   const bookTitle = book ? book.title : "Book Not Found";
 
   return (
+    <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 dark:bg-gray-800">
     <div className="w-[20rem] mx-auto p-6 border rounded-lg shadow-lg flex flex-col items-center bg-white dark:bg-gray-800">
       <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{bookTitle}</h2>
       <img
@@ -37,6 +37,7 @@ export function BookDetail() {
         </svg>
         Back
       </button>
+    </div>
     </div>
   );
 }

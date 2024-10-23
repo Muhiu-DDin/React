@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useContext } from "react";
-import { userContext } from "../context/userContext";
 
 export function Signin() {
-  const { setUserName } = useContext(userContext);
-  const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
+  // const { setUserName } = useContext(userContext);
+  // const [user, setUser] = useState("");
+  // const [password, setPassword] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -38,8 +36,8 @@ export function Signin() {
               </label>
               <div className="mt-2">
                 <input
-                  value={user}
-                  onChange={(e) => setUser(e.target.value)}
+                  // value={user}
+                  // onChange={(e) => setUser(e.target.value)}
                   id="email"
                   name="email"
                   type="email"
@@ -68,8 +66,8 @@ export function Signin() {
               </div>
               <div className="mt-2">
                 <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  // value={password}
+                  // onChange={(e) => setPassword(e.target.value)}
                   id="password"
                   name="password"
                   type="password"
@@ -81,7 +79,7 @@ export function Signin() {
             </div>
             <div>
               <button
-                onClick={submitHandler}
+                // onClick={submitHandler}
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400"
               >
