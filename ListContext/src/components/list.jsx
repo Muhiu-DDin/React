@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { toDoContext } from "../context/listContext";
 
 function Lists() {
-  const { todos, setTodos } = useContext(toDoContext);
+  const {todos, setTodos } = useContext(toDoContext);
   const [editableTodoId , setEditableTodoId] = useState(null);
   const [editTodo , setEditTodo] = useState("");
 
@@ -11,20 +11,21 @@ function Lists() {
     setTodos(todos.filter((obj) => obj.id !== id));
   };
 
-  const handleEdit = (id , curr)=>{
-    if (editableTodoId === id){
-        setTodos(
-            todos.map(
-                (obj)=> obj.id === id ? {...todos , todo : editTodo} : obj
-            )
+
+  const handleEdit = (id, curr) => {
+    if (editableTodoId === id) {
+      setTodos(
+        todos.map((obj) =>
+          obj.id === id ? { ...obj, todo: editTodo } : obj
         )
-        setEditableTodoId(null)
+      );
+      setEditableTodoId(null);
+    } else {
+      setEditableTodoId(id);
+      setEditTodo(curr);
     }
-    else{
-        setEditableTodoId(id);
-        setEditTodo(curr);
-    }
-  }
+  };
+  
 
   return (
     <>

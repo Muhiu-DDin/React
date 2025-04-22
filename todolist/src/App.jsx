@@ -31,7 +31,7 @@ function App() {
     , [todos])
 
   const taskCompleted = (id) => {
-    const arr = [...todos]
+    const arr = [...todos]  
     const obj = arr.findIndex((data) => data.id == id)
     arr[obj].completed = !arr[obj].completed
     console.log(arr[obj])

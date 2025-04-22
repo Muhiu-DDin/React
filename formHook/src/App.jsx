@@ -39,7 +39,7 @@ function App() {
                 <button className="bg-blue-600 text-white px-2 py-2 rounded-lg" type="submit">Submit</button>
               </form>
           </div>
-      </div>
+      </div> 
   )
 }
 
